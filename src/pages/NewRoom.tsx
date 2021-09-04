@@ -1,5 +1,5 @@
+import { FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-
 import IllustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
@@ -9,6 +9,13 @@ import { Button } from '../components/Button';
 
 export function NewRoom() {
     //const {user} = useAuth();
+
+    async function handleCreateRoom(e: FormEvent) {
+        e.preventDefault();
+
+        console.log('clickei')
+    }
+
     return (
         <div id="page-auth">
             <aside>
@@ -20,7 +27,7 @@ export function NewRoom() {
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask" />
                     <h2>Criar uma nova sala</h2>
-                    <form>
+                    <form onSubmit={(e) => handleCreateRoom(e)}>
                         <input 
                         type="text"
                         placeholder="Nome da sala"
