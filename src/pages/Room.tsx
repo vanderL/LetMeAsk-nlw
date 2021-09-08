@@ -7,6 +7,7 @@ import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 import '../styles/room.scss';
 import { database } from '../services/firebase';
+import { Question } from '../components/Question';
 
 type FirebaseQuestions = Record<string, {
     author: {
@@ -125,6 +126,15 @@ export function Room() {
                         <Button type="submit" disabled={!user}>Enviar pergunta</Button>
                     </div>
                 </form>
+
+                {questions.map(question => {
+                    return (
+                       <Question 
+                        content={question.content}
+                        author={question.author}
+                       /> 
+                    )
+                })}
             </main>
         </div>
     );
